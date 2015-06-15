@@ -1,5 +1,5 @@
 function fngetDetails() {
-	$("#div381").text('');
+	$("#divCurrent").text('');
 	$("#divWeek").text('');
     var teams = [
 	{
@@ -19,10 +19,10 @@ function fngetDetails() {
 				
 				var html = [];
 				html.push('<div>')
-				html.push(data.list[0].weather[0].description);
+				html.push(team.City+' - '+  data.list[0].weather[0].description);
 				html.push('</div>')
-				$("#div381").text('');
-				$("#div381").append(html.join('   '));
+				$("#divCurrent").text('');
+				$("#divCurrent").append(html.join('   '));
 				
 				
 			});
