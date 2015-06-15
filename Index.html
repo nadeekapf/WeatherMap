@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<link href="http://dz44vc6ose3il.cloudfront.net/theme.css" rel="stylesheet" type="text/css" media="all">
+    <script  src="http://code.jquery.com/jquery-1.10.1.js"></script>
+	<script language="javascript" type="text/javascript" src="weather.js"></script>
+	<script language="javascript" type="text/javascript" src="support.js"></script>
+    
+</head>
+<body>
+<div class="container">
+<div class="page-header" id="banner" >
+<div class="row">
+    <div class="col-lg-8 col-md-7 col-sm-6 page-title"><h1>WeatherMap</h1>
+	<p class="lead">Shows you weather</p>
+	</div>
+	</div>
+</div>
+	<div class="ls-docs-section">
+	<div class="well ls-component">
+		<div class="form-group">
+	    <label  class="col-lg-2 control-label">City Name or Post Code</label>
+		<div class="col-lg-10">
+		<input type="text" id="city" placeholder="Name or PostCode" class="form-control"/>
+		</div>
+		</div>
+		<div class="form-group">
+		<div class="col-lg-10 col-lg-offset-2">
+		  <button class="btn btn-default" onclick="fnClear()">Cancel</button>
+		  <button type="submit" id="btnok" class="btn btn-primary" onclick="fngetDetails()">Submit</button>
+		</div></div>
+		
+		</div>
+		
+		<div class="panel panel-info">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><strong>Weather - Current</strong></h4>
+                </div>
+                <div id="div381" class="panel-body">
+                  
+                </div>
+              </div>
+		
+		
+	 <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><strong>Weather - Weekly Report</strong></h4></div>
+	 <div id="divWeek" class="panel-body">
+	 
+	 </div>
+	 </div>
+	 </div>
+
+</body>
+</html>
