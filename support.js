@@ -33,6 +33,7 @@ function fngetDetails() {
 				if(dataw.list.length===0)
 				{
 					$("#divWeek").text('');
+					
 				}
 				else{
 				wweek.push('<table class='+"table table-bordered table-hover"+' id='+"myTable"+'><thead><tr><th>Date</th><th>Weather</th></tr></thead></table>');
