@@ -1,4 +1,6 @@
 function fngetDetails() {
+	$("#div381").text('');
+	$("#divWeek").text('');
     var teams = [
 	{
 	   Teams: document.getElementById("city").value,
@@ -21,18 +23,25 @@ function fngetDetails() {
 				html.push('</div>')
 				$("#div381").text('');
 				$("#div381").append(html.join('   '));
+				
+				
 			});
 			
 			var wweek=[];
 			getWeatherforWeek(coords,function(dataw){
 				
+				if(dataw.list.length===0)
+				{
+					$("#divWeek").text('');
+				}
+				else{
 				wweek.push('<table class='+"table table-bordered table-hover"+' id='+"myTable"+'><thead><tr><th>Date</th><th>Weather</th></tr></thead></table>');
 				$("#divWeek").text('');
 				$("#divWeek").append(wweek);
-						$.each(dataw.list, function (i, v) {
-							$('#myTable tr:last').after('<tr><td>'+dataw.list[i].dt_txt+'</td><td>'+dataw.list[i].weather[0].description+'</td></tr>');
-							
-						});
+				$.each(dataw.list, function (i, v) {
+					$('#myTable tr:last').after('<tr><td>'+dataw.list[i].dt_txt+'</td><td>'+dataw.list[i].weather[0].description+'</td></tr>');
+					
+				});}
 						
 					});
 					
