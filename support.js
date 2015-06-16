@@ -50,6 +50,7 @@ function fngetDetails() {
             }
         }
 
-		function fnClear(){
-			document.getElementById("city").value="";
-		}
+function fnClear(){
+	document.getElementById("city").value="";
+}
+
