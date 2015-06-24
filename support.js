@@ -1,4 +1,4 @@
-function fngetDetails() {
+function fngetDetails(callback) {
 	$("#divCurrent").text('');
 	$("#divWeek").text('');
     var teams = [
@@ -15,17 +15,7 @@ function fngetDetails() {
 		var obj = teams[team];
 		(function (team) {
 			coords = [team.Lat, team.Long]
-			getWeather(coords, function (data) {
-				
-				var html = [];
-				html.push('<div>')
-				html.push(team.City+' - '+  data.list[0].weather[0].description);
-				html.push('</div>')
-				$("#divCurrent").text('');
-				$("#divCurrent").append(html.join('   '));
-				
-				
-			});
+			
 			
 			var wweek=[];
 			getWeatherforWeek(coords,function(dataw){
@@ -36,20 +26,53 @@ function fngetDetails() {
 					
 				}
 				else{
-				wweek.push('<table class='+"table table-bordered table-hover"+' id='+"myTable"+'><thead><tr><th>Date</th><th>Weather</th></tr></thead></table>');
-				$("#divWeek").text('');
-				$("#divWeek").append(wweek);
+				
 				$.each(dataw.list, function (i, v) {
-					$('#myTable tr:last').after('<tr><td>'+dataw.list[i].dt_txt+'</td><td>'+dataw.list[i].weather[0].description+'</td></tr>');
-					
-				});}
-						
+					wweek.push('<h3 class=\"menuheader expandable\">'+dataw.list[i].dt_txt+' - '+dataw.list[i].weather[0].main+'</h3>');
+					wweek.push('<ul class=\"categoryitems\">'
+					+'<li>weather      - '+dataw.list[i].weather[0].description+'</li>'
+					+'<li>temp         - '+dataw.list[i].main.temp+'</li>'
+					+'<li>pressure     - '+dataw.list[i].main.pressure+'</li>'
+					+'<li>sea level    - '+dataw.list[i].main.sea_level+'</li>'
+					+'<li>humidity     - '+dataw.list[i].main.humidity+'</li>'
+					+'<li>wind speed   - '+dataw.list[i].wind.speed+'</li>'
+					+'</ul>');
+				});
+				$("#divWeek").append(wweek);
+				}
+					callback();	
 					});
 					
                 }(obj));
             }
+			
         }
 
+
+		
+function fnAnimateList()
+{
+
+	ddaccordion.init({
+	headerclass: "expandable", 
+	contentclass: "categoryitems", 
+	revealtype: "click", 
+	mouseoverdelay: 200, 
+	collapseprev: true, 
+	defaultexpanded: [0], 
+	onemustopen: false, 
+	animatedefault: true, 
+	persiststate: true, 
+	toggleclass: ["", "openheader"], 
+	togglehtml: ["prefix", "", ""], 
+	animatespeed: "fast", 
+	oninit:function(headers, expandedindices){ 
+	},
+	onopenclose:function(header, index, state, isuseractivated){ 
+	}
+});
+}
+		
 function fnClear(){
 	document.getElementById("city").value="";
 }

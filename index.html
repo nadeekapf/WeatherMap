@@ -13,6 +13,14 @@
 	<script src="jquery-1.11.1.min.js"></script>
 	<script src="jquery-ui.min.js"></script>
 	<script src="jquery.select-to-autocomplete.js"></script>
+	
+	<script type="text/javascript" src="ddaccordion.js"></script>
+
+ <link type="text/css" rel="Stylesheet" href="menu.css" />
+<script type="text/javascript">
+
+
+</script>
     <script>
 	
 	function fnLoadCities() {
@@ -29,7 +37,8 @@
 	{
 		
 		fnLoadCities();
-		
+		fnClear();
+		document.getElementById("divCurrent").text='';
 	}
 	
 	
@@ -324,28 +333,23 @@
 		<div class="form-group">
 		<div class="col-lg-10 col-lg-offset-2">
 		  <button class="btn btn-default" onclick="fnClear()">Cancel</button>
-		  <button type="submit" id="btnok" class="btn btn-primary" onclick="fngetDetails()">Submit</button>
+		  <button type="submit" id="btnok" class="btn btn-primary" onclick="fngetDetails(fnAnimateList)">Submit</button>
+		 
 		</div>
 		</div>
 		
 		</div>
 		
-		<div class="panel panel-info">
-                <div class="panel-heading">
-                  <h4 class="panel-title"><strong>Weather - Current</strong></h4>
-                </div>
-                <div id="divCurrent" class="panel-body">
-                  
-                </div>
-              </div>
 		
 		
-	 <div class="panel panel-info">
-                <div class="panel-heading">
-                 <h4 class="panel-title"><strong>Weather - Weekly Report</strong></h4></div>
-	 <div id="divWeek" class="panel-body">
+		
+	 <div >
+                
+	 <div id="divWeek" class="arrowlistmenu">
 	 
 	 </div>
+	 
+	
 	 </div>
 	 </div>
 
